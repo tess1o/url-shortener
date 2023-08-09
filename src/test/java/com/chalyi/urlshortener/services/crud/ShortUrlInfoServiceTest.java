@@ -11,8 +11,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 
 @SpringBootTestWithDirtyContext
@@ -29,12 +27,11 @@ public class ShortUrlInfoServiceTest extends BaseTest {
     }
 
     @Test
-    public void testInfo() throws UnknownHostException {
+    public void testInfo() {
         CreateShortUrlRequest request = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
 
         CreateShortUrlResponse shortUrlResponse = createService.create(request);

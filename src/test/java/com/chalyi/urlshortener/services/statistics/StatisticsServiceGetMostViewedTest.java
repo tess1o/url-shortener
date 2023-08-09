@@ -58,8 +58,7 @@ public class StatisticsServiceGetMostViewedTest extends BaseTest {
             CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                     "http://test.com",
                     0,
-                    "testUserAgent",
-                    InetAddress.getByName("10.10.0.0")
+                    "testUserAgent"
             );
 
             CreateShortUrlResponse response = createService.create(createShortUrlRequest);
@@ -106,7 +105,7 @@ public class StatisticsServiceGetMostViewedTest extends BaseTest {
     }
 
     @Test
-    void testMostUsedUserAgent_createUrls() throws UnknownHostException {
+    void testMostUsedUserAgent_createUrls() {
         final int urls = 10;
         final String testUserAgent = "testUserAgent";
 
@@ -114,8 +113,7 @@ public class StatisticsServiceGetMostViewedTest extends BaseTest {
             CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                     "http://test.com",
                     0,
-                    testUserAgent,
-                    InetAddress.getByName("10.10.0.0")
+                    testUserAgent
             );
             createService.create(createShortUrlRequest);
         }

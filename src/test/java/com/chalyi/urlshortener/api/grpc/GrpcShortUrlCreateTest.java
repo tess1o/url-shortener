@@ -19,9 +19,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doThrow;
 
@@ -47,7 +44,7 @@ public class GrpcShortUrlCreateTest extends BaseGrpcTest {
     void testCreate() {
         ShortUrlServiceGrpc.ShortUrlServiceBlockingStub stub = ShortUrlServiceGrpc.newBlockingStub(getChannel());
 
-        String originalUrl = "http://ukr.net";
+        String originalUrl = "https://amazon.com";
         com.chalyi.urlshortener.grpc.CreateShortUrlRequest request = com.chalyi.urlshortener.grpc.CreateShortUrlRequest.newBuilder()
                 .setOriginalUrl(originalUrl)
                 .setExpire(0L)
@@ -60,14 +57,13 @@ public class GrpcShortUrlCreateTest extends BaseGrpcTest {
     }
 
     @Test
-    void testDelete() throws UnknownHostException {
+    void testDelete() {
         ShortUrlServiceGrpc.ShortUrlServiceBlockingStub stub = ShortUrlServiceGrpc.newBlockingStub(getChannel());
 
         CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
 
         com.chalyi.urlshortener.model.responses.CreateShortUrlResponse response = createService.create(createShortUrlRequest);
@@ -88,14 +84,13 @@ public class GrpcShortUrlCreateTest extends BaseGrpcTest {
     }
 
     @Test
-    void testDelete_WrongToken() throws UnknownHostException {
+    void testDelete_WrongToken() {
         ShortUrlServiceGrpc.ShortUrlServiceBlockingStub stub = ShortUrlServiceGrpc.newBlockingStub(getChannel());
 
         CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
 
         com.chalyi.urlshortener.model.responses.CreateShortUrlResponse response = createService.create(createShortUrlRequest);

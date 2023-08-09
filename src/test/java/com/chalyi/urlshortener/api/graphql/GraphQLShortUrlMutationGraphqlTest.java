@@ -16,8 +16,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Map;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -129,12 +127,11 @@ public class GraphQLShortUrlMutationGraphqlTest extends BaseTest {
     }
 
     @Test
-    void deleteShortUrlTest() throws UnknownHostException {
+    void deleteShortUrlTest() {
         CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
 
         CreateShortUrlResponse response = createService.create(createShortUrlRequest);
@@ -177,12 +174,11 @@ public class GraphQLShortUrlMutationGraphqlTest extends BaseTest {
     }
 
     @Test
-    void deleteShortUrl_wrongDeleteToken() throws UnknownHostException {
+    void deleteShortUrl_wrongDeleteToken() {
         CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
 
         CreateShortUrlResponse response = createService.create(createShortUrlRequest);

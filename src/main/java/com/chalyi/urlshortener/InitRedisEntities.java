@@ -11,6 +11,10 @@ import redis.clients.jedis.timeseries.AggregationType;
 import redis.clients.jedis.timeseries.DuplicatePolicy;
 import redis.clients.jedis.timeseries.TSCreateParams;
 
+/**
+ * This component is used to initialize redis with required time series.
+ * The time series must be created only once.
+ */
 @Component
 @RequiredArgsConstructor
 @Slf4j

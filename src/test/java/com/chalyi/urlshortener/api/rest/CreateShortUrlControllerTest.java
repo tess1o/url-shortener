@@ -31,7 +31,7 @@ public class CreateShortUrlControllerTest extends BaseTest {
     @Test
     public void createShouldReturnResponse() throws Exception {
 
-        final String originalUrl = "http://ukr.net";
+        final String originalUrl = "https://amazon.com";
         final int expire = 0;
         final String userAgent = "someUserAgent";
 

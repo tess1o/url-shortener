@@ -20,8 +20,6 @@ import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import java.net.InetAddress;
-
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doThrow;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -52,12 +50,12 @@ public class InfoShortUrlControllerTest extends BaseTest {
     @Test
     public void infoShouldReturnResults() throws Exception {
 
-        final String originalUrl = "http://ukr.net";
+        final String originalUrl = "https://amazon.com";
         final int expire = 0;
         final String userAgent = "someUserAgent";
 
         CreateShortUrlResponse createShortUrlResponse = createService.create(new CreateShortUrlRequest(
-                originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                originalUrl, expire, userAgent
         ));
 
         MvcResult result = this.mockMvc.perform(get("/info/{shortUrl}", createShortUrlResponse.getShortUrl()))
@@ -81,12 +79,12 @@ public class InfoShortUrlControllerTest extends BaseTest {
     @Test
     public void infoWithStatsShouldReturnResults() throws Exception {
 
-        final String originalUrl = "http://ukr.net";
+        final String originalUrl = "https://amazon.com";
         final int expire = 0;
         final String userAgent = "someUserAgent";
 
         CreateShortUrlResponse createShortUrlResponse = createService.create(new CreateShortUrlRequest(
-                originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                originalUrl, expire, userAgent
         ));
 
         MvcResult result = this.mockMvc.perform(get("/info/stats/{shortUrl}", createShortUrlResponse.getShortUrl()))

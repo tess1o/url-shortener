@@ -43,7 +43,7 @@ public class ShortUrlDeleteServiceTest extends BaseTest {
     }
 
     @Test
-    public void testDelete() throws UnknownHostException {
+    public void testDelete() {
         CreateShortUrlResponse response = getCreateShortUrlResponse();
         Assertions.assertNotNull(response, "Response should not be null");
         Assertions.assertTrue(StringUtils.isNotEmpty(response.getShortUrl()), "Short url should not be empty");
@@ -66,7 +66,7 @@ public class ShortUrlDeleteServiceTest extends BaseTest {
     }
 
     @Test
-    public void testDeleteWrongToken() throws UnknownHostException {
+    public void testDeleteWrongToken() {
         CreateShortUrlResponse response = getCreateShortUrlResponse();
         Assertions.assertNotNull(response, "Response should not be null");
         Assertions.assertTrue(StringUtils.isNotEmpty(response.getShortUrl()), "Short url should not be empty");
@@ -78,12 +78,11 @@ public class ShortUrlDeleteServiceTest extends BaseTest {
         );
     }
 
-    private CreateShortUrlResponse getCreateShortUrlResponse() throws UnknownHostException {
+    private CreateShortUrlResponse getCreateShortUrlResponse() {
         CreateShortUrlRequest request = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
         return createService.create(request);
     }

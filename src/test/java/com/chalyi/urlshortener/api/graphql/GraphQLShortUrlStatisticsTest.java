@@ -44,13 +44,12 @@ public class GraphQLShortUrlStatisticsTest extends BaseTest {
     }
 
     @Test
-    public void infoTest() throws UnknownHostException {
+    public void infoTest() {
         String originalUrl = "http://test.com";
         CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                 originalUrl,
                 0,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
 
         CreateShortUrlResponse response = createService.create(createShortUrlRequest);
@@ -102,10 +101,9 @@ public class GraphQLShortUrlStatisticsTest extends BaseTest {
 
         for (int i = 0; i < iterations; i++) {
             CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
-                    "http://ukr.net",
+                    "https://amazon.com",
                     0,
-                    "testUserAgent",
-                    InetAddress.getByName("10.10.0.0")
+                    "testUserAgent"
             );
             String shortUrl = createService.create(createShortUrlRequest).getShortUrl();
             createdShortUrls.add(shortUrl);
@@ -144,10 +142,9 @@ public class GraphQLShortUrlStatisticsTest extends BaseTest {
 
         for (int i = 0; i < iterations; i++) {
             CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
-                    "http://ukr.net",
+                    "https://amazon.com",
                     0,
-                    createUserAgent,
-                    InetAddress.getByName("10.10.0.0")
+                    createUserAgent
             );
             String shortUrl = createService.create(createShortUrlRequest).getShortUrl();
             visitService.visitShortUrl(new VisitShortUrlRequest(
@@ -186,10 +183,9 @@ public class GraphQLShortUrlStatisticsTest extends BaseTest {
 
         for (int i = 0; i < iterations; i++) {
             CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
-                    "http://ukr.net",
+                    "https://amazon.com",
                     0,
-                    "testUserAgent",
-                    InetAddress.getByName("10.10.0.0")
+                    "testUserAgent"
             );
             String shortUrl = createService.create(createShortUrlRequest).getShortUrl();
             visitService.visitShortUrl(new VisitShortUrlRequest(

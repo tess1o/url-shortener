@@ -18,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import redis.clients.jedis.UnifiedJedis;
 
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.time.Clock;
 import java.time.LocalDateTime;
@@ -59,7 +58,7 @@ public class ShortUrlCreateServiceTest extends BaseTest {
     }
 
     @Test
-    public void testCreate() throws UnknownHostException {
+    public void testCreate() {
         CreateShortUrlRequest request = getShortUrlRequest(0);
         CreateShortUrlResponse response = createService.create(request);
 
@@ -84,21 +83,20 @@ public class ShortUrlCreateServiceTest extends BaseTest {
     }
 
     @Test
-    public void testCreateEmptyUserAgent() throws UnknownHostException {
+    public void testCreateEmptyUserAgent() {
         testEmptyUserAgent("");
     }
 
     @Test
-    public void testNullUserAgent() throws UnknownHostException {
+    public void testNullUserAgent() {
         testEmptyUserAgent(null);
     }
 
-    private void testEmptyUserAgent(String agent) throws UnknownHostException {
+    private void testEmptyUserAgent(String agent) {
         CreateShortUrlRequest request = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                agent,
-                InetAddress.getByName("10.10.0.0")
+                agent
         );
 
         CreateShortUrlResponse response = createService.create(request);
@@ -142,7 +140,7 @@ public class ShortUrlCreateServiceTest extends BaseTest {
     }
 
     @Test
-    public void testCreateWithExpire() throws UnknownHostException {
+    public void testCreateWithExpire() {
         final int expire = 2;
         CreateShortUrlRequest request = getShortUrlRequest(expire);
         CreateShortUrlResponse response = createService.create(request);
@@ -166,12 +164,11 @@ public class ShortUrlCreateServiceTest extends BaseTest {
     }
 
     @NotNull
-    private static CreateShortUrlRequest getShortUrlRequest(int expire) throws UnknownHostException {
+    private static CreateShortUrlRequest getShortUrlRequest(int expire) {
         return new CreateShortUrlRequest(
                 "http://test.com",
                 expire,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
     }
 }

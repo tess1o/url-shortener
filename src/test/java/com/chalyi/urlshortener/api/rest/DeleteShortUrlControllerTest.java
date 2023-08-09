@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.net.InetAddress;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -36,12 +34,12 @@ public class DeleteShortUrlControllerTest extends BaseTest {
     @Test
     void testDelete() throws Exception {
 
-        final String originalUrl = "http://ukr.net";
+        final String originalUrl = "https://amazon.com";
         final int expire = 0;
         final String userAgent = "someUserAgent";
 
         CreateShortUrlResponse createShortUrlResponse = createService.create(new CreateShortUrlRequest(
-                originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                originalUrl, expire, userAgent
         ));
 
         DeleteShortUrlRequestDto deleteRequest =
@@ -59,12 +57,12 @@ public class DeleteShortUrlControllerTest extends BaseTest {
     @Test
     void testDelete_WrongDeleteToken() throws Exception {
 
-        final String originalUrl = "http://ukr.net";
+        final String originalUrl = "https://amazon.com";
         final int expire = 0;
         final String userAgent = "someUserAgent";
 
         CreateShortUrlResponse createShortUrlResponse = createService.create(new CreateShortUrlRequest(
-                originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                originalUrl, expire, userAgent
         ));
 
         DeleteShortUrlRequestDto deleteRequest =

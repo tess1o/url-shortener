@@ -140,12 +140,11 @@ public class StatisticsServiceShortUrlWithStatisticsTest extends BaseTest {
     }
 
 
-    private CreateShortUrlResponse createShortUrl() throws UnknownHostException {
+    private CreateShortUrlResponse createShortUrl() {
         CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
         return createService.create(createShortUrlRequest);
     }

@@ -35,12 +35,12 @@ public class VisitShortUrlControllerTest extends BaseTest {
     @Test
     void testVisit() throws Exception {
 
-        final String originalUrl = "http://ukr.net";
+        final String originalUrl = "https://amazon.com";
         final int expire = 0;
         final String userAgent = "someUserAgent";
 
         CreateShortUrlResponse createShortUrlResponse = createService.create(new CreateShortUrlRequest(
-                originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                originalUrl, expire, userAgent
         ));
 
         MvcResult result = this.mockMvc.perform(get("/{shortUrl}", createShortUrlResponse.getShortUrl()))

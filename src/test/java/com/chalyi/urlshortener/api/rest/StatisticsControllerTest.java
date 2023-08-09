@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.net.InetAddress;
 import java.util.Collections;
 import java.util.stream.Stream;
 
@@ -73,12 +72,12 @@ public class StatisticsControllerTest extends BaseTest {
     @MethodSource("counts")
     void testMostViewed(int count, int urlsToCreate) throws Exception {
         for (int i = 0; i < urlsToCreate; i++) {
-            final String originalUrl = "http://ukr.net";
+            final String originalUrl = "https://amazon.com";
             final int expire = 0;
             final String userAgent = "someUserAgent";
 
             createService.create(new CreateShortUrlRequest(
-                    originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                    originalUrl, expire, userAgent
             ));
         }
 
@@ -92,12 +91,12 @@ public class StatisticsControllerTest extends BaseTest {
     void testMostViewed_defaultCount() throws Exception {
         int urlsToCreate = defaultMostViewed + 5;
         for (int i = 0; i < urlsToCreate; i++) {
-            final String originalUrl = "http://ukr.net";
+            final String originalUrl = "https://amazon.com";
             final int expire = 0;
             final String userAgent = "someUserAgent";
 
             createService.create(new CreateShortUrlRequest(
-                    originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                    originalUrl, expire, userAgent
             ));
         }
 
@@ -121,12 +120,12 @@ public class StatisticsControllerTest extends BaseTest {
     void testMostUsedAgents(int count, int userAgentsToUse, int cycles) throws Exception {
         for (int c = 0; c < cycles; c++) {
             for (int i = 0; i < userAgentsToUse; i++) {
-                final String originalUrl = "http://ukr.net";
+                final String originalUrl = "https://amazon.com";
                 final int expire = 0;
                 final String userAgent = "someUserAgent_%d".formatted(i);
 
                 createService.create(new CreateShortUrlRequest(
-                        originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                        originalUrl, expire, userAgent
                 ));
             }
         }
@@ -141,12 +140,12 @@ public class StatisticsControllerTest extends BaseTest {
     void testMostUsedAgents_defaultCount() throws Exception {
         int userAgentsToUse = defaultMostUsedAgents + 5;
         for (int i = 0; i < userAgentsToUse; i++) {
-            final String originalUrl = "http://ukr.net";
+            final String originalUrl = "https://amazon.com";
             final int expire = 0;
             final String userAgent = "someUserAgent_%d".formatted(i);
 
             createService.create(new CreateShortUrlRequest(
-                    originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                    originalUrl, expire, userAgent
             ));
         }
 
@@ -180,12 +179,12 @@ public class StatisticsControllerTest extends BaseTest {
     void overall() throws Exception {
         int urlsToCreate = 7;
         for (int i = 0; i < urlsToCreate; i++) {
-            final String originalUrl = "http://ukr.net";
+            final String originalUrl = "https://amazon.com";
             final int expire = 0;
             final String userAgent = "someUserAgent";
 
             createService.create(new CreateShortUrlRequest(
-                    originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                    originalUrl, expire, userAgent
             ));
         }
 

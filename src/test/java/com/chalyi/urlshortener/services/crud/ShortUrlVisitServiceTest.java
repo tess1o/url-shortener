@@ -61,8 +61,7 @@ public class ShortUrlVisitServiceTest extends BaseTest {
         CreateShortUrlRequest createRequest = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                "testUserAgent",
-                InetAddress.getByName("10.10.0.0")
+                "testUserAgent"
         );
         CreateShortUrlResponse createShortUrlResponse = createService.create(createRequest);
 
@@ -141,8 +140,7 @@ public class ShortUrlVisitServiceTest extends BaseTest {
         CreateShortUrlRequest createRequest = new CreateShortUrlRequest(
                 "http://test.com",
                 0,
-                "userAgent",
-                InetAddress.getByName("10.10.0.0")
+                "userAgent"
         );
         CreateShortUrlResponse createShortUrlResponse = createService.create(createRequest);
 

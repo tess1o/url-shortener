@@ -58,8 +58,7 @@ public class StatisticsServiceGetMostUsedUserAgentsTest extends BaseTest {
             CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                     "http://test.com",
                     0,
-                    null,
-                    InetAddress.getByName("10.10.0.0")
+                    null
             );
             createdShortUrls.add(createService.create(createShortUrlRequest).getShortUrl());
         }
@@ -88,8 +87,7 @@ public class StatisticsServiceGetMostUsedUserAgentsTest extends BaseTest {
             CreateShortUrlRequest createShortUrlRequest = new CreateShortUrlRequest(
                     "http://test.com",
                     0,
-                    null,
-                    InetAddress.getByName("10.10.0.0")
+                    null
             );
             createdShortUrls.add(createService.create(createShortUrlRequest).getShortUrl());
         }

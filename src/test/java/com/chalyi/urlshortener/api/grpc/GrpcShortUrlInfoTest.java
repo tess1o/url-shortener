@@ -1,7 +1,10 @@
 package com.chalyi.urlshortener.api.grpc;
 
 import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
-import com.chalyi.urlshortener.grpc.*;
+import com.chalyi.urlshortener.grpc.ShortUrl;
+import com.chalyi.urlshortener.grpc.ShortUrlInfoServiceGrpc;
+import com.chalyi.urlshortener.grpc.ShortUrlRequest;
+import com.chalyi.urlshortener.grpc.ShortUrlWithStatistics;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
 import com.chalyi.urlshortener.model.responses.CreateShortUrlResponse;
 import com.chalyi.urlshortener.services.crud.ShortUrlCreateService;
@@ -11,9 +14,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 @SpringBootTestWithDirtyContext
 public class GrpcShortUrlInfoTest extends BaseGrpcTest {
@@ -26,13 +26,13 @@ public class GrpcShortUrlInfoTest extends BaseGrpcTest {
     }
 
     @Test
-    public void testInfo() throws UnknownHostException {
-        final String originalUrl = "http://ukr.net";
+    public void testInfo() {
+        final String originalUrl = "https://amazon.com";
         final int expire = 0;
         final String userAgent = "someUserAgent";
 
         CreateShortUrlResponse createShortUrlResponse = createService.create(new CreateShortUrlRequest(
-                originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                originalUrl, expire, userAgent
         ));
 
         ShortUrlInfoServiceGrpc.ShortUrlInfoServiceBlockingStub stub = ShortUrlInfoServiceGrpc.newBlockingStub(getChannel());
@@ -57,13 +57,13 @@ public class GrpcShortUrlInfoTest extends BaseGrpcTest {
     }
 
     @Test
-    public void testInfoWithStatistics() throws UnknownHostException {
-        final String originalUrl = "http://ukr.net";
+    public void testInfoWithStatistics() {
+        final String originalUrl = "https://amazon.com";
         final int expire = 0;
         final String userAgent = "someUserAgent";
 
         CreateShortUrlResponse createShortUrlResponse = createService.create(new CreateShortUrlRequest(
-                originalUrl, expire, userAgent, InetAddress.getByName("10.1.1.1")
+                originalUrl, expire, userAgent
         ));
 
         ShortUrlInfoServiceGrpc.ShortUrlInfoServiceBlockingStub stub = ShortUrlInfoServiceGrpc.newBlockingStub(getChannel());
