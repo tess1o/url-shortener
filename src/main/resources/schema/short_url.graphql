@@ -1,0 +1,87 @@
+scalar NonNegativeInt
+scalar DateTime
+
+type Query {
+    info(request: ShortUrlRequest) : ShortUrlWithStatistics
+    mostViewedShortUrls(request: MostViewedUrlRequest): [ShortUrl!]
+    mostUsedUserAgents(request: MostUserAgentsRequest): [MostUserAgentsResponse]
+    overallStatistics: OverallStatistics
+}
+
+type Mutation {
+    create(request: ShortUrlCreateRequest) : ShortUrlCreateResponse
+    delete(request: ShortUrlDeleteRequest) : ShortUrlDeleteResponse
+}
+
+type OverallStatistics {
+    created: TimeStatistics!
+    visited: TimeStatistics!
+    averageCreatedPerDay: Float!
+    averageVisitedPerDay: Float!
+    totalCreated: NonNegativeInt!
+    totalVisited: NonNegativeInt!
+    mostViewedUrls: [ShortUrl!]
+    mostUsedUserAgents: [MostUserAgentsResponse!]
+}
+
+type TimeStatistics {
+    lastWeek: NonNegativeInt!
+    thisWeek: NonNegativeInt!
+    lastMonth: NonNegativeInt!
+    thisMonth: NonNegativeInt!
+    lastHour: NonNegativeInt!
+    today: NonNegativeInt!
+    yesterday: NonNegativeInt!
+}
+
+type MostUserAgentsResponse {
+    userAgent: String!
+    occurrences: NonNegativeInt!
+}
+
+input MostUserAgentsRequest {
+    count: NonNegativeInt!
+}
+
+input MostViewedUrlRequest {
+    count: NonNegativeInt!
+}
+
+type ShortUrl {
+    shortUrl: String!
+    originalUrl: String!
+    visitors: NonNegativeInt!
+    uniqueVisitors: NonNegativeInt!
+    userAgents: [String!]
+    created: DateTime!
+    expire: DateTime!
+}
+
+type ShortUrlWithStatistics {
+    shortUrl: ShortUrl!
+    lastVisited: [DateTime!]
+    timeStatistics: TimeStatistics
+}
+
+input ShortUrlRequest {
+    shortUrl: String!
+}
+
+input ShortUrlCreateRequest {
+    originalUrl: String!
+    expire: NonNegativeInt
+}
+
+type ShortUrlCreateResponse {
+    shortUrl: String!
+    deleteToken: String!
+}
+
+input ShortUrlDeleteRequest {
+    shortUrl: String!
+    deleteToken: String!
+}
+
+type ShortUrlDeleteResponse {
+    response: String!
+}

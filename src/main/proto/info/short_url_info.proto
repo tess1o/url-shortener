@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "short_url_model.proto";
+import "statistics/statistics_model.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "com.chalyi.urlshortener.grpc";
+
+message ShortUrlRequest {
+  string short_url = 1;
+}
+
+message ShortUrlWithStatistics {
+  ShortUrl short_url = 1;
+  repeated google.protobuf.Timestamp last_visited = 2;
+  TimeStatistics visited_statistics = 3;
+}
+
+service ShortUrlInfoService {
+  rpc Info (ShortUrlRequest) returns (ShortUrl);
+  rpc InfoWithStatistics (ShortUrlRequest) returns (ShortUrlWithStatistics);
+}

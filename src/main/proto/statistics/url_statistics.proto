@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.chalyi.urlshortener.grpc";
+
+import "google/protobuf/empty.proto";
+import "short_url_model.proto";
+import "statistics/statistics_model.proto";
+
+service UrlStatisticsService {
+  rpc GetMostViewedShortUrls (MostViewedUrlRequest) returns (stream ShortUrl);
+  rpc GetMostUsedUserAgents (MostUserAgentsRequest) returns (stream MostUserAgentsResponse);
+  rpc GetOverallStatistics (google.protobuf.Empty) returns (OverallStatistics);
+}

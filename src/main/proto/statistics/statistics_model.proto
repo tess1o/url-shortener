@@ -1,0 +1,39 @@
+syntax = "proto3";
+import "short_url_model.proto";
+
+option java_multiple_files = true;
+option java_package = "com.chalyi.urlshortener.grpc";
+
+message MostViewedUrlRequest {
+  uint32 count = 1;
+}
+
+message MostUserAgentsRequest {
+  uint32 count = 1;
+}
+
+message MostUserAgentsResponse {
+  string user_agent = 1;
+  uint32 occurrences = 2;
+}
+
+message TimeStatistics {
+  uint32 last_week = 1;
+  uint32 this_week = 2;
+  uint32 last_month = 3;
+  uint32 this_month = 4;
+  uint32 last_hour = 5;
+  uint32 today = 6;
+  uint32 yesterday = 7;
+}
+
+message OverallStatistics {
+  TimeStatistics created = 1;
+  TimeStatistics visited = 2;
+  double average_created_per_day = 3;
+  double average_visited_per_day = 4;
+  uint64 total_created = 5;
+  uint64 total_visited = 6;
+  repeated MostUserAgentsResponse most_user_agents_responses = 7;
+  repeated ShortUrl most_viewed_urls = 8;
+}

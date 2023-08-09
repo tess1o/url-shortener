@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.chalyi.urlshortener.grpc";
+
+message CreateShortUrlRequest {
+  string original_url = 1;
+  uint64 expire = 2;
+}
+
+message CreateShortUrlResponse {
+  string short_url = 1;
+  string delete_token = 2;
+}
+
+message DeleteShortUrlRequest {
+  string short_url = 1;
+  string delete_token = 2;
+}
+
+message DeleteShortUrlResponse {
+  string response = 1;
+}
+
+service ShortUrlService {
+  rpc Create (CreateShortUrlRequest) returns (CreateShortUrlResponse);
+  rpc Delete (DeleteShortUrlRequest) returns (DeleteShortUrlResponse);
+}

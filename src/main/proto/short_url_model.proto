@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.chalyi.urlshortener.grpc";
+
+import "google/protobuf/timestamp.proto";
+
+message ShortUrl {
+  string short_url = 1;
+  string original_url = 2;
+  uint64 visitors = 3;
+  uint64 unique_visitors = 4;
+  repeated string user_agents = 5;
+  google.protobuf.Timestamp created = 6;
+  google.protobuf.Timestamp expire = 7;
+}

@@ -1,0 +1,20 @@
+short-url:
+  url-length: 10
+  remove-token-length: 12
+  statistics:
+    defaultMostViewed: 10
+    defaultMostUsedAgents: 10
+
+redis:
+  host: localhost
+  port: 6379
+
+grpc:
+  port: 6789
+  enableReflection: true
+
+dgs:
+  graphql:
+    extensions:
+      scalars:
+        enabled: true
