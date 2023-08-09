@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.services.crud;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.TimeMachine;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
 import com.chalyi.urlshortener.model.responses.CreateShortUrlResponse;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 @Slf4j
 public class ShortUrlCreateServiceTest extends BaseTest {
 

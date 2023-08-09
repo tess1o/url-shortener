@@ -17,5 +17,5 @@ import java.lang.annotation.*;
 @SpringBootTest
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public @interface TestDirtyContext {
+public @interface SpringBootTestWithDirtyContext {
 }

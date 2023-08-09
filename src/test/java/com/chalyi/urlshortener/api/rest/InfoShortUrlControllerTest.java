@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.api.rest;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.model.ShortUrl;
 import com.chalyi.urlshortener.model.ShortUrlWithStatistics;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class InfoShortUrlControllerTest extends BaseTest {
 
     @Autowired

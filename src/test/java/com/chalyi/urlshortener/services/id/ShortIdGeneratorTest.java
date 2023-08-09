@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.services.id;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.HashSet;
 import java.util.Set;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 @Slf4j
 public class ShortIdGeneratorTest extends BaseTest {
 

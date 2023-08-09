@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.services.crud;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.exceptions.NoSuchUrlFound;
 import com.chalyi.urlshortener.model.ShortUrl;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
@@ -15,7 +15,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 @Slf4j
 public class ShortUrlInfoServiceTest extends BaseTest {
 

@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.api.rest;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.api.rest.dto.DeleteShortUrlRequestDto;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
 import com.chalyi.urlshortener.model.responses.CreateShortUrlResponse;
@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class DeleteShortUrlControllerTest extends BaseTest {
 
     @Autowired

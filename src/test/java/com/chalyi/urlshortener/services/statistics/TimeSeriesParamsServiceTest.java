@@ -1,6 +1,6 @@
 package com.chalyi.urlshortener.services.statistics;
 
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.TimeMachine;
 import com.chalyi.urlshortener.services.statistics.time.series.TimeSeriesParamsService;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class TimeSeriesParamsServiceTest {
 
     private static final AggregationType AGGREGATION_TYPE = AggregationType.AVG;

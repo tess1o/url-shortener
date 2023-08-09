@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.services.statistics;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.TimeMachine;
 import com.chalyi.urlshortener.model.OverallStatistics;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
@@ -24,7 +24,7 @@ import java.util.Map;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class StatisticsServiceGetOverallStatisticTest extends BaseTest {
 
     private final StatisticsService statisticsService;

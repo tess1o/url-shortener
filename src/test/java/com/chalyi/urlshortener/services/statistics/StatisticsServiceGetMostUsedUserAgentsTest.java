@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.services.statistics;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.TimeMachine;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
 import com.chalyi.urlshortener.model.requests.VisitShortUrlRequest;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class StatisticsServiceGetMostUsedUserAgentsTest extends BaseTest {
 
     private final StatisticsService statisticsService;

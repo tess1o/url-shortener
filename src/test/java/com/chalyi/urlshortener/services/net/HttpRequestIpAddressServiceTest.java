@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.services.net;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 @Slf4j
 class HttpRequestIpAddressServiceTest extends BaseTest {
 

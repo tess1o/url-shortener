@@ -1,6 +1,6 @@
 package com.chalyi.urlshortener.api.grpc;
 
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.exceptions.NoSuchUrlFound;
 import com.chalyi.urlshortener.grpc.CreateShortUrlResponse;
 import com.chalyi.urlshortener.grpc.DeleteShortUrlRequest;
@@ -26,7 +26,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doThrow;
 
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class GrpcShortUrlCreateTest extends BaseGrpcTest {
 
     @Autowired

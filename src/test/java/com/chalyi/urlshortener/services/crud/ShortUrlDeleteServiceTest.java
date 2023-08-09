@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.services.crud;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.exceptions.NoSuchUrlFound;
 import com.chalyi.urlshortener.exceptions.WrongDeleteTokenException;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
@@ -18,7 +18,7 @@ import redis.clients.jedis.UnifiedJedis;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 @Slf4j
 public class ShortUrlDeleteServiceTest extends BaseTest {
 

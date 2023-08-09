@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.api.graphql;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
 import com.chalyi.urlshortener.model.responses.CreateShortUrlResponse;
 import com.chalyi.urlshortener.services.crud.ShortUrlCreateService;
@@ -24,7 +24,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class GraphQLShortUrlMutationGraphqlTest extends BaseTest {
 
     @Autowired

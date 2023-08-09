@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.services.crud;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.TimeMachine;
 import com.chalyi.urlshortener.exceptions.NoSuchUrlFound;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
@@ -23,7 +23,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.TimeZone;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 @Slf4j
 public class ShortUrlVisitServiceTest extends BaseTest {
 

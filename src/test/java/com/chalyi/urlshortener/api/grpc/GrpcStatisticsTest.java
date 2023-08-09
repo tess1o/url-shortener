@@ -1,6 +1,6 @@
 package com.chalyi.urlshortener.api.grpc;
 
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.grpc.*;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
 import com.chalyi.urlshortener.model.requests.VisitShortUrlRequest;
@@ -18,7 +18,7 @@ import java.net.UnknownHostException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class GrpcStatisticsTest extends BaseGrpcTest {
 
     @Value("${short-url.statistics.defaultMostViewed}")

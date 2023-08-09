@@ -1,7 +1,7 @@
 package com.chalyi.urlshortener.api.graphql;
 
 import com.chalyi.urlshortener.BaseTest;
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
 import com.chalyi.urlshortener.model.requests.VisitShortUrlRequest;
 import com.chalyi.urlshortener.model.responses.CreateShortUrlResponse;
@@ -20,7 +20,7 @@ import java.net.UnknownHostException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class GraphQLShortUrlStatisticsTest extends BaseTest {
 
     @Autowired

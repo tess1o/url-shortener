@@ -1,6 +1,6 @@
 package com.chalyi.urlshortener.api.grpc;
 
-import com.chalyi.urlshortener.TestDirtyContext;
+import com.chalyi.urlshortener.SpringBootTestWithDirtyContext;
 import com.chalyi.urlshortener.grpc.*;
 import com.chalyi.urlshortener.model.requests.CreateShortUrlRequest;
 import com.chalyi.urlshortener.model.responses.CreateShortUrlResponse;
@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-@TestDirtyContext
+@SpringBootTestWithDirtyContext
 public class GrpcShortUrlInfoTest extends BaseGrpcTest {
     @Autowired
     private ShortUrlCreateService createService;
