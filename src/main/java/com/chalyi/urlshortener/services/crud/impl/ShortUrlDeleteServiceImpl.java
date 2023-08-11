@@ -16,6 +16,13 @@ public class ShortUrlDeleteServiceImpl implements ShortUrlDeleteService {
     private final UnifiedJedis unifiedJedis;
     private final RedisUrlKeys redisUrlKeys;
 
+    /**
+     * This method deletes the short url from the redis. It also performs clean up for the keys used by
+     * the short url
+     *
+     * @param shortUrl    - short url to be deleted
+     * @param deleteToken - delete token
+     */
     @Override
     public void delete(String shortUrl, String deleteToken) {
         String urlHashKey = redisUrlKeys.urlHashKey(shortUrl);

@@ -2,6 +2,9 @@ package com.chalyi.urlshortener.services;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * The storage of all redis keys used by the application
+ */
 @Service
 public class RedisUrlKeys {
 
